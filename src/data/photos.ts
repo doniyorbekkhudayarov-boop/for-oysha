@@ -1,0 +1,33 @@
+const originalFiles = [
+  '20240223_165815.jpg',
+  '20240226_173613.jpg',
+  '20240226_174346.jpg',
+  '20240226_174422.jpg',
+  '20240226_174530.jpg',
+  '20240227_211043.jpg',
+  'photo_2026-11-02_16-15-33.jpg',
+  'photo_2026-11-02_16-15-35.jpg',
+  'photo_2026-11-02_16-15-36.jpg',
+  'photo_2026-11-02_16-15-38.jpg',
+  'photo_2026-11-02_16-15-42.jpg',
+  'photo_2026-11-02_16-15-46.jpg',
+  'photo_2026-11-02_16-15-50.jpg',
+  'photo_2026-11-02_16-15-52.jpg',
+  'photo_2026-11-02_16-15-53.jpg',
+  'photo_2026-11-02_16-15-54.jpg',
+  'photo_2026-11-02_16-15-55.jpg',
+  'photo_2026-11-02_16-15-56.jpg',
+  'photo_2026-11-02_16-15-57.jpg',
+  'photo_2026-11-02_16-15-59.jpg',
+  'photo_2026-11-02_16-16-01.jpg',
+  'photo_2026-11-02_16-16-02.jpg',
+  'photo_2026-11-02_16-16-04.jpg',
+  'photo_2026-11-02_16-16-05.jpg',
+];
+
+export const photos = originalFiles.map((originalFile, index) => ({
+  id: index + 1,
+  originalFile,
+  src: `/images/oisha/photo-${String(index + 1).padStart(2, '0')}.webp`,
+  alt: `Фото воспоминание ${index + 1}`,
+}));
