@@ -227,3 +227,68 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--rose-dark); out
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Heart catcher intro */
+.catcher-screen {
+  position: fixed; z-index: 30; inset: 0; min-height: 100svh; overflow: hidden; display: grid; place-items: center;
+  color: var(--ink); background: radial-gradient(ellipse at 50% 42%, rgba(255, 252, 249, .98) 0%, rgba(251, 244, 239, .95) 43%, rgba(241, 224, 224, .95) 100%);
+}
+.catcher-screen::before { content: ''; position: absolute; inset: 14px; border: 1px solid rgba(158, 115, 128, .2); pointer-events: none; }
+.catcher-frame { position: absolute; inset: 22px; border: 1px solid rgba(158, 115, 128, .12); pointer-events: none; }
+.catcher-wash { position: absolute; width: 38vw; height: 38vw; max-width: 540px; max-height: 540px; border-radius: 50%; filter: blur(2px); pointer-events: none; }
+.catcher-wash--left { top: -18%; left: -13%; background: rgba(232, 192, 199, .25); }
+.catcher-wash--right { right: -15%; bottom: -24%; background: rgba(222, 192, 176, .3); }
+.catcher-brand { position: absolute; z-index: 8; top: clamp(26px, 5vh, 52px); left: clamp(28px, 6vw, 86px); display: flex; align-items: center; gap: 12px; color: #765966; font-size: 9px; font-weight: 600; letter-spacing: .18em; }
+.catcher-brand .brand-mark { background: rgba(255, 252, 249, .5); }
+.catcher-copy { position: relative; z-index: 5; width: min(850px, 90vw); padding: 30px 0 54px; text-align: center; pointer-events: none; }
+.catcher-copy .eyebrow { justify-content: center; }
+.catcher-copy h1 { margin: 23px 0 13px; color: #462f3b; font: 400 clamp(46px, 7vw, 82px)/1.08 var(--serif); letter-spacing: -.05em; }
+.catcher-copy h1 em, .complete-card h2 em { color: var(--rose); font-weight: 400; }
+.catcher-hint { margin: 0; color: #806a73; font-size: clamp(12px, 1.4vw, 15px); line-height: 1.8; }
+.catcher-progress-card { width: min(398px, 86vw); margin: 32px auto 0; padding: 17px 22px 13px; border: 1px solid rgba(177, 138, 139, .25); background: rgba(255, 252, 249, .88); box-shadow: 0 15px 40px rgba(88, 56, 66, .09); backdrop-filter: blur(8px); }
+.catcher-progress-count { display: flex; align-items: baseline; justify-content: center; gap: 9px; color: #997b85; font: 14px var(--serif); }
+.catcher-progress-count span:first-child { color: var(--rose-dark); font: 500 28px var(--serif); font-variant-numeric: tabular-nums; }
+.catcher-progress-count i { color: #c1a8ad; font-style: normal; }
+.catcher-progress-hearts { display: grid; grid-template-columns: repeat(10, 1fr); justify-items: center; gap: 6px 5px; width: min(220px, 74vw); margin: 12px auto 0; }
+.progress-heart { width: clamp(11px, 1.5vw, 16px); height: clamp(11px, 1.5vw, 16px); color: #d9b9bf; transition: color .25s, transform .25s; }
+.progress-heart.is-filled { color: #b85d77; transform: scale(1.08); }
+.catcher-progress-card p { margin: 10px 0 0; color: #a0878e; font: italic 12px var(--serif); }
+.falling-field { position: absolute; z-index: 6; inset: 0; overflow: hidden; pointer-events: none; }
+.falling-heart { position: absolute; top: -120px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #c45f7b; cursor: pointer; pointer-events: auto; filter: drop-shadow(0 10px 15px rgba(151, 71, 98, .22)); touch-action: manipulation; }
+.falling-heart::before { content: ''; position: absolute; inset: 4px; border: 1px solid rgba(255, 255, 255, .7); border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, .8), rgba(238, 190, 202, .65) 46%, rgba(189, 92, 121, .28)); box-shadow: inset 0 1px 10px rgba(255, 255, 255, .72), 0 7px 18px rgba(135, 66, 91, .12); }
+.falling-heart-icon { position: relative; z-index: 1; color: #bd5a75; filter: drop-shadow(0 2px 2px rgba(255, 255, 255, .7)); }
+.heart-glint { position: absolute; z-index: 2; top: 15%; right: 22%; color: rgba(255, 255, 255, .9); font-size: 10px; }
+.catcher-bottom-note { position: absolute; z-index: 7; bottom: clamp(22px, 4vh, 40px); left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 12px; margin: 0; color: #9d838b; font: italic 13px var(--serif); pointer-events: none; }
+.catcher-bottom-note span { color: #b2808e; font-size: 11px; }
+.catcher-complete { position: absolute; z-index: 12; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(246, 234, 231, .69); backdrop-filter: blur(7px); }
+.complete-card { width: min(390px, 92vw); padding: 40px 28px 34px; border: 1px solid rgba(177, 138, 139, .3); background: #fffcf8; box-shadow: 0 26px 70px rgba(88, 56, 66, .16); text-align: center; }
+.complete-hearts { margin-bottom: 20px; color: #b95e79; font-size: 20px; letter-spacing: .1em; }
+.complete-card .eyebrow { justify-content: center; font-size: 8px; }
+.complete-card h2 { margin: 18px 0 12px; color: #462f3b; font: 400 42px/1.1 var(--serif); letter-spacing: -.04em; }
+.complete-card > p:last-of-type { margin: 0; color: #8b747b; font: italic 14px var(--serif); }
+.complete-spinner { display: grid; place-items: center; width: 38px; height: 38px; margin: 22px auto 0; border: 1px solid #e8c8d0; border-radius: 50%; color: #b95e79; animation: heartbeat 1.5s ease-in-out infinite; }
+.complete-spinner svg { width: 17px; }
+
+@media (max-width: 650px) {
+  .catcher-screen::before { inset: 9px; }
+  .catcher-frame { inset: 15px; }
+  .catcher-brand { top: 26px; left: 25px; gap: 9px; font-size: 7px; letter-spacing: .12em; }
+  .catcher-brand .brand-mark { width: 30px; height: 30px; font-size: 17px; }
+  .catcher-copy { width: calc(100% - 34px); padding-top: 30px; padding-bottom: 35px; }
+  .catcher-copy .eyebrow { gap: 7px; font-size: 7px; letter-spacing: .13em; }
+  .catcher-copy .eyebrow-line { width: 14px; }
+  .catcher-copy h1 { margin-top: 18px; font-size: clamp(43px, 11vw, 60px); }
+  .catcher-hint { font-size: 12px; line-height: 1.7; }
+  .catcher-progress-card { margin-top: 25px; padding: 14px 15px 12px; }
+  .catcher-progress-hearts { width: min(210px, 74vw); gap: 5px 4px; }
+  .progress-heart { width: clamp(10px, 3.3vw, 14px); height: clamp(10px, 3.3vw, 14px); }
+  .catcher-bottom-note { bottom: 25px; font-size: 11px; }
+  .catcher-wash { width: 70vw; height: 70vw; }
+  .complete-card { padding: 34px 22px 30px; }
+  .complete-card h2 { font-size: 38px; }
+}
+@media (max-height: 680px) and (min-width: 651px) {
+  .catcher-copy { transform: scale(.84); }
+  .catcher-brand { top: 20px; }
+  .catcher-bottom-note { bottom: 17px; }
+}
