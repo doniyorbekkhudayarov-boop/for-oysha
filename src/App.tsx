@@ -267,11 +267,14 @@ function HeartCatcher({ onComplete, reducedMotion }: { onComplete: () => void; r
   }, [complete]);
 
   useEffect(() => {
-    if (caught < HEART_GOAL || complete) return;
-    setComplete(true);
+    if (caught >= HEART_GOAL) setComplete(true);
+  }, [caught]);
+
+  useEffect(() => {
+    if (!complete) return;
     const timer = window.setTimeout(onComplete, reducedMotion ? 650 : 1850);
     return () => window.clearTimeout(timer);
-  }, [caught, complete, onComplete, reducedMotion]);
+  }, [complete, onComplete, reducedMotion]);
 
   const catchHeart = (id: number) => {
     setDrops((current) => current.filter((heart) => heart.id !== id));
